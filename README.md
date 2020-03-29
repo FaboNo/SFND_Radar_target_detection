@@ -14,7 +14,12 @@ The Range Doppler Map (RDM) generated is the following:
 
 In order to filter out the noise we applied 2D CA-CFAR - 2D Cell Averaging Constant False Alarm Rate. CA-CFAR consists of the following steps:
 
-- First, we define a 2D sliding window consisting of three types of cells - training cells, guard cells and cell under test (CUT). After some tests, we ended up with the following values : Training Cell Range & Doppler = 8 Guard cell Range & Doppler = 4, offset = 6. Although the size of the matrix (NrxNd) is not a square we kept the same values for Range and Doppler. In order to get rid of the false positives, We had to increase both the number of training cells and the offset.
+- First, we define a 2D sliding window consisting of three types of cells - training cells, guard cells and cell under test (CUT). After some tests, we ended up with the following values : 
+    - Training Cell Range & Doppler = 8, 
+    - Guard cell Range & Doppler = 4, 
+    - offset = 6. 
+    
+    Although the size of the matrix (NrxNd) is not a square we kept the same values for Range and Doppler. In order to get rid of the false positives, We had to increase both the number of training cells and the offset;
     
 - Second, we compute the average noise level for all the training cells to obtain the threshold. To do that we 1) sump up over all the sliding window then 2) sum up over the Guard + CUT cells and  take the difference in order to obtain the noise over the training cells only;
     
